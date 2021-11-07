@@ -1,12 +1,28 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 
-const SettingsScreen = () => {
+import ButtonPrim from "../components/ButtonPrim";
+
+const SettingsScreen = ({ navigation }) => {
     return (
-        <View>
-            <Text>Settings</Text>
+        <View style={styles.container}>
+            <ButtonPrim buttonStyles={styles.logout} onPress={() => {
+                navigation.reset({ index: 1, routes: [{ name: 'Login' }] });
+            }
+            }>Logout</ButtonPrim>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        paddingVertical: 20,
+        paddingHorizontal: 10
+    },
+    logout: {
+        alignSelf: 'center',
+        backgroundColor: 'hsl(0, 100%, 50%)'
+    }
+});
 
 export default SettingsScreen;
