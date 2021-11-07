@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
 
                 <ButtonPrim buttonStyles={styles.loginButton}
                     onPress={() => {
-                        navigation.replace('feed');
+                        navigation.replace('Feed');
                     }}>Submit</ButtonPrim>
             </View>
         </View>
