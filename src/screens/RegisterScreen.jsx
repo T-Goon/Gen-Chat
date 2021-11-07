@@ -1,34 +1,35 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 import FormInput from '../components/FormInput';
 import ButtonPrim from '../components/ButtonPrim';
 import LoginRegHere from '../components/LoginRegHere';
 
-const LoginScreen = ({ navigation }) => {
-
+const RegisterScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Gen Chat</Text>
 
             <View style={styles.form}>
 
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Register</Text>
 
-                <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5 }}
+                <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 20 }}
                     label='Username:' placeholder='username' />
-                <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5, marginBottom: 20 }}
+                <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5 }}
                     label='Password:' placeholder='password' secureTextEntry={true} />
+                <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5, marginBottom: 20 }}
+                    label='Confirm Password:' placeholder='password' secureTextEntry={true} />
 
                 <ButtonPrim buttonStyles={styles.loginButton}
                     onPress={() => {
                         navigation.replace('Feed');
                     }}>Submit</ButtonPrim>
-                <LoginRegHere navigation={navigation} msg={'Don\'t have an account? Register '} location='Register' />
+                <LoginRegHere navigation={navigation} msg={'Already have an account? Login '} location='Login' />
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -63,4 +64,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginScreen;
+export default RegisterScreen;
