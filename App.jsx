@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -23,18 +22,16 @@ export default function App() {
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
         <Stack.Screen name='Feed' component={FeedScreen} />
-        <Stack.Screen name='Settings' component={SettingsScreen} options={{ headerShown: true }} />
-        <Stack.Screen name='Add Post' component={AddPostScreen} options={{ headerShown: true }} />
+        <Stack.Screen name='Settings' component={SettingsScreen} options={{ headerShown: true, headerTitleStyle: styles.header }} />
+        <Stack.Screen name='Add Post' component={AddPostScreen} options={{ headerShown: true, headerTitleStyle: styles.header }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  header: {
+    fontSize: 30,
+    fontWeight: 'bold'
   },
 });

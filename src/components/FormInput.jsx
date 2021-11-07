@@ -1,16 +1,17 @@
 import React from "react";
 import { TextInput, Text, View, StyleSheet } from "react-native";
 
-const FormInput = ({ placeholder, label, type, containerStyles, secureTextEntry }) => {
+const FormInput = ({ placeholder, label, labelStyles, type, containerStyles, secureTextEntry, multiline }) => {
 
     return (
         <View style={{ ...styles.container, ...containerStyles }}>
-            <Text>{label}</Text>
+            <Text style={{ ...labelStyles }}>{label}</Text>
 
             <TextInput style={styles.input}
                 placeholder={placeholder}
                 keyboardType={type ? type : 'default'}
-                secureTextEntry={secureTextEntry ? secureTextEntry : false} />
+                secureTextEntry={secureTextEntry ? secureTextEntry : false}
+                multiline={multiline ? multiline : false} />
         </View>
     );
 };
