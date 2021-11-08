@@ -1,10 +1,18 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useContext } from "react";
+import { View, StyleSheet } from "react-native";
+
+import { Context } from "../Context";
 
 import FormInput from "../components/FormInput";
 import ButtonPrim from "../components/ButtonPrim";
 
 const AddPostScreen = () => {
+    const { ws } = useContext(Context);
+
+    const post = () => {
+        ws.send('hellow');
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.form}>
@@ -12,7 +20,7 @@ const AddPostScreen = () => {
                 <FormInput label='Body:' labelStyles={styles.labels} multiline={true} />
             </View>
 
-            <ButtonPrim buttonStyles={styles.postButton}>Post</ButtonPrim>
+            <ButtonPrim buttonStyles={styles.postButton} onPress={post} >Post</ButtonPrim>
         </View>
     );
 };
