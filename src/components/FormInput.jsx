@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput, Text, View, StyleSheet } from "react-native";
 
-const FormInput = ({ placeholder, label, labelStyles, type, containerStyles, secureTextEntry, multiline }) => {
+const FormInput = ({ placeholder, label, labelStyles, type, containerStyles, secureTextEntry, multiline, onChangeText }) => {
 
     return (
         <View style={{ ...styles.container, ...containerStyles }}>
@@ -11,7 +11,8 @@ const FormInput = ({ placeholder, label, labelStyles, type, containerStyles, sec
                 placeholder={placeholder}
                 keyboardType={type ? type : 'default'}
                 secureTextEntry={secureTextEntry ? secureTextEntry : false}
-                multiline={multiline ? multiline : false} />
+                multiline={multiline ? multiline : false}
+                onChangeText={onChangeText ? onChangeText : null} />
         </View>
     );
 };

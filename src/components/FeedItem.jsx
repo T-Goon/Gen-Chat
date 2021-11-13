@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const FeedItem = ({ title }) => {
+const FeedItem = ({ username, message }) => {
     return (
         <View style={styles.container}>
-            <Text>{title}</Text>
+            <Text style={styles.username}>{username+':'}</Text>
+            <Text style={styles.message}>{message}</Text>
         </View>
     );
 };
@@ -15,6 +16,13 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         padding: 5,
         borderRadius: 10
+    }, 
+    username: {
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+    message: {
+        paddingLeft: 20
     }
 });
 

@@ -1,29 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCog, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import FeedItem from "../components/FeedItem";
 
-const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-    },
-];
+import { Context } from "../Context";
 
 const FeedScreen = ({ navigation }) => {
-    const renderItem = ({ item }) => (
-        <FeedItem title={item.title} />
-    );
+    const { messages } = useContext(Context);
+
+    const renderItem = ({ item }) => {
+        const json = JSON.parse(item);
+        return (
+            <FeedItem username={json.username} message={json.message} />
+        );
+    };
 
     return (
         <View style={styles.container}>
@@ -35,10 +27,10 @@ const FeedScreen = ({ navigation }) => {
             </View>
             <FlatList
                 style={styles.list}
-                data={DATA}
+                data={messages}
                 renderItem={renderItem}
-                keyExtractor={item => item.id} />
-            <Pressable style={styles.postButton} onPress={() => {navigation.navigate('Add Post');}}>
+                keyExtractor={(item, index) => index} />
+            <Pressable style={styles.postButton} onPress={() => { navigation.navigate('Send Post'); }}>
                 <FontAwesomeIcon icon={faPlusCircle} color='hsla(0, 0%, 0%,.5)' size={50} />
             </Pressable>
         </View>

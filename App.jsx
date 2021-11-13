@@ -27,7 +27,7 @@ export default function App() {
           <Stack.Screen name='Register' component={RegisterScreen} />
           <Stack.Screen name='Feed' component={FeedScreen} />
           <Stack.Screen name='Settings' component={SettingsScreen} options={{ headerShown: true, headerTitleStyle: styles.header }} />
-          <Stack.Screen name='Add Post' component={AddPostScreen} options={{ headerShown: true, headerTitleStyle: styles.header }} />
+          <Stack.Screen name='Send Post' component={AddPostScreen} options={{ headerShown: true, headerTitleStyle: styles.header }} />
         </Stack.Navigator>
       </NavigationContainer>
     </ContextProvider>

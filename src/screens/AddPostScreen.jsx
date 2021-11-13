@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { View, StyleSheet } from "react-native";
+import jwt_decode from "jwt-decode";
 
 import { Context } from "../Context";
 
@@ -7,17 +8,32 @@ import FormInput from "../components/FormInput";
 import ButtonPrim from "../components/ButtonPrim";
 
 const AddPostScreen = () => {
-    const { ws } = useContext(Context);
+    const [message, setMessage] = useState('');
+    const { sendMessage, getValueFor } = useContext(Context);
 
-    const post = () => {
-        ws.send('hellow');
+    const post = async () => {
+        if(message !== '') {
+            const token = await getValueFor('token');
+            if(!token) {
+                alert('Not logged in.');
+                navigation.reset({ index: 1, routes: [{ name: 'Login' }] });
+            } else {
+                const decoded = jwt_decode(token);
+                sendMessage(JSON.stringify({
+                    username: decoded.username,
+                    message
+                }));
+            }
+            
+        }
+        
     };
 
     return (
         <View style={styles.container}>
             <View style={styles.form}>
-                <FormInput label='Title:' labelStyles={styles.labels} placeholder='title' />
-                <FormInput label='Body:' labelStyles={styles.labels} multiline={true} />
+                <FormInput label='Message:' labelStyles={styles.labels} multiline={true} placeholder='message'
+                    onChangeText={setMessage} />
             </View>
 
             <ButtonPrim buttonStyles={styles.postButton} onPress={post} >Post</ButtonPrim>

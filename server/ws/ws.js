@@ -5,7 +5,13 @@ const configureWS = (server) => {
 
     wss.on('connection', (ws) => {
         ws.on('message', (message, isBinary) => {
-            console.log(message.toString(), isBinary);
+
+            wss.clients.forEach(function each(client) {
+                if (client.readyState === WebSocket.OPEN) {
+                  client.send(message);
+                }
+              });
+
         });
     });
 }
