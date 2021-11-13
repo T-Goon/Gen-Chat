@@ -7,6 +7,10 @@ async function save(key, value) {
     await SecureStore.setItemAsync(key, value);
 }
 
+async function remove(key) {
+    await SecureStore.deleteItemAsync(key);
+}
+
 async function getValueFor(key) {
     let result = await SecureStore.getItemAsync(key);
     if (result) {
@@ -54,7 +58,7 @@ const ContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <Context.Provider value={{ sendMessage, messages, save, getValueFor }}>
+        <Context.Provider value={{ sendMessage, messages, save, remove, getValueFor }}>
             {children}
         </Context.Provider>
     );

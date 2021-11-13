@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 
 import ButtonPrim from "../components/ButtonPrim";
+import { Context } from '../Context';
 
 const SettingsScreen = ({ navigation }) => {
+    const { remove } = useContext(Context);
+
     return (
         <View style={styles.container}>
-            <ButtonPrim buttonStyles={styles.logout} onPress={() => {
+            <ButtonPrim buttonStyles={styles.logout} onPress={async () => {
+                await remove('token');
                 navigation.reset({ index: 1, routes: [{ name: 'Login' }] });
             }
             }>Logout</ButtonPrim>
