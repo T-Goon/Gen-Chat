@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { render, fireEvent, act } from '@testing-library/react-native';
 
 import FeedScreen from '../../src/screens/FeedScreen';
 import ContextProvider from '../../src/Context';
@@ -16,17 +17,13 @@ describe('<FeedScreen />', () => {
     });
 
     it('has i child', async () => {
-        const tree = renderer.create(
+        const tree = render(
             <ContextProvider>
                 <FeedScreen />
             </ContextProvider>).toJSON();
 
-        server.send("hello everyone1");
-        server.send("hello everyone2");
-
         expect(tree.children.length).toBe(3);
 
-        WS.clean();
     });
 
     it('renders correctly', async () => {

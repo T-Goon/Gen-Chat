@@ -37,7 +37,7 @@ const ContextProvider = ({ children }) => {
         };
         ws.onclose = (e) => {
             // console.log('Closed ws connection');
-            // connectWS();
+            connectWS();
         };
         ws.onerror = (e) => {
             // console.log("error ", e);
