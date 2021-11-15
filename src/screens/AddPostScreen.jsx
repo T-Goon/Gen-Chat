@@ -12,12 +12,15 @@ const AddPostScreen = () => {
     const { sendMessage, getValueFor } = useContext(Context);
 
     const post = async () => {
+        console.log(`posting: ${message}`)
         if(message !== '') {
             const token = await getValueFor('token');
             if(!token) {
+                console.log('not Logged in');
                 alert('Not logged in.');
                 navigation.reset({ index: 1, routes: [{ name: 'Login' }] });
             } else {
+                console.log('sending');
                 const decoded = jwt_decode(token);
                 sendMessage(JSON.stringify({
                     username: decoded.username,

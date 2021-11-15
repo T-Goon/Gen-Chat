@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddPostScreen/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "hsl(230, 100%, 80%)",
+        "borderColor": "black",
+        "borderRadius": 20,
+        "borderWidth": 3,
+        "marginBottom": 20,
+        "paddingBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingTop": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Message:
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="default"
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="message"
+        rejectResponderTermination={true}
+        secureTextEntry={false}
+        style={
+          Object {
+            "backgroundColor": "hsl(0, 0%, 95%)",
+            "borderColor": "black",
+            "borderRadius": 5,
+            "borderWidth": 2,
+            "paddingHorizontal": 10,
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "hsl(550, 100%, 50%)",
+        "borderRadius": 10,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Post
+    </Text>
+  </View>
+</View>
+`;

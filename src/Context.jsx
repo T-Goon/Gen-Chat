@@ -30,17 +30,17 @@ const ContextProvider = ({ children }) => {
     const [messages, dispatch] = useReducer(reducer, []);
 
     const connectWS = () => {
-        console.log('Connecting to server');
+        // console.log('Connecting to server');
         const ws = new WebSocket('ws://localhost:3000/');
         ws.onopen = () => {
-            console.log('Opened ws connection');
+            // console.log('Opened ws connection');
         };
         ws.onclose = (e) => {
-            console.log('Closed ws connection');
-            connectWS();
+            // console.log('Closed ws connection');
+            // connectWS();
         };
         ws.onerror = (e) => {
-            console.log("error ", e);
+            // console.log("error ", e);
         };
         ws.onmessage = (e) => {
             dispatch({ type: 'add', payload: e.data });
