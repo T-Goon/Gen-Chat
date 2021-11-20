@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormInput/ > Snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "marginBottom": 20,
+      "marginVertical": 5,
+      "paddingHorizontal": 15,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={Object {}}
+  >
+    Password:
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="default"
+    multiline={false}
+    onChangeText={null}
+    placeholder="password"
+    rejectResponderTermination={true}
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "hsl(0, 0%, 95%)",
+        "borderColor": "black",
+        "borderRadius": 5,
+        "borderWidth": 2,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
