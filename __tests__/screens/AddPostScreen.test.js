@@ -12,8 +12,6 @@ describe('<AddPostScreen/>', () => {
         const tree = render(<AddPostScreen />).toJSON();
         // console.log(tree.children[0].children[0].children[1]);
         expect(tree.children.length).toBe(2);
-
-
     });
 
     // it('can send message', async () => {
