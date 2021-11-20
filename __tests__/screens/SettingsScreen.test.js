@@ -1,6 +1,5 @@
 import React from 'react';
-// import renderer from 'react-test-renderer';
-import { render, fireEvent, act } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 import SettingsScreen from '../../src/screens/SettingsScreen';
 

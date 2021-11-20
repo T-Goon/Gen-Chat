@@ -1,21 +1,7 @@
 import React from 'react';
-// import renderer from 'react-test-renderer';
-import { render, fireEvent, act } from '@testing-library/react-native';
-// import * as SecureStore from 'expo-secure-store';
-import WS from "jest-websocket-mock";
+import { render } from '@testing-library/react-native';
 
 import AddPostScreen from '../../src/screens/AddPostScreen';
-import ContextProvider from '../../src/Context';
-
-// jest.mock('expo-secure-store');
-
-let server = new WS("ws://localhost:3000");
-// server.on('connection', (socket) => {
-//     console.log('mock socket');
-// })
-// server.on('message', (socket) => {
-//     console.log('message ', socket);
-// })
 
 describe('<AddPostScreen/>', () => {
     beforeEach(async () => {
