@@ -1,53 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AddPostScreen/> renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "white",
-      "flex": 1,
-      "paddingHorizontal": 10,
-      "paddingVertical": 20,
-    }
-  }
->
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "hsl(0, 100%, 50%)",
-        "borderRadius": 10,
-        "justifyContent": "center",
-        "opacity": 1,
-        "paddingHorizontal": 16,
-        "paddingVertical": 8,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "fontSize": 20,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      Logout
-    </Text>
-  </View>
-</View>
-`;
-
 exports[`<SettingsScreen/> renders correctly 1`] = `
 <View
   style={

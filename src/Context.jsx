@@ -1,8 +1,6 @@
 import React, { createContext, useState, useEffect, useReducer } from "react";
 import * as SecureStore from 'expo-secure-store';
 
-export const Context = createContext();
-
 async function save(key, value) {
     await SecureStore.setItemAsync(key, value);
 }
@@ -25,6 +23,16 @@ const reducer = (state, action) => {
     }
 }
 
+const initialValue = {
+    sendMessage: () => { throw new Error('Overwrite this function'); },
+    messages: [],
+    save,
+    remove,
+    getValueFor
+};
+
+export const Context = createContext(initialValue);
+
 const ContextProvider = ({ children }) => {
     const [ws, setWS] = useState(null);
     const [messages, dispatch] = useReducer(reducer, []);
@@ -33,6 +41,7 @@ const ContextProvider = ({ children }) => {
         // console.log('Connecting to server');
         const ws = new WebSocket('ws://localhost:3000/');
         ws.onopen = () => {
+            setWS(ws);
             // console.log('Opened ws connection');
         };
         ws.onclose = (e) => {
@@ -45,8 +54,6 @@ const ContextProvider = ({ children }) => {
         ws.onmessage = (e) => {
             dispatch({ type: 'add', payload: e.data });
         };
-
-        setWS(ws);
     }
 
     const sendMessage = (msg) => {

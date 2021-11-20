@@ -1,10 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
 import { render, fireEvent, act } from '@testing-library/react-native';
 
 import FeedScreen from '../../src/screens/FeedScreen';
 import ContextProvider from '../../src/Context';
-jest.useFakeTimers();
 
 import WS from "jest-websocket-mock";
 
@@ -17,24 +16,14 @@ describe('<FeedScreen />', () => {
     });
 
     it('has i child', async () => {
-        const tree = render(
-            <ContextProvider>
-                <FeedScreen />
-            </ContextProvider>).toJSON();
+        const tree = render(<FeedScreen />).toJSON();
 
         expect(tree.children.length).toBe(3);
-
     });
 
     it('renders correctly', async () => {
-        const tree = renderer.create(
-            <ContextProvider>
-                <FeedScreen />
-            </ContextProvider>
-        ).toJSON();
+        const tree = render(<FeedScreen />).toJSON();
 
         expect(tree).toMatchSnapshot();
     });
-
-
 });

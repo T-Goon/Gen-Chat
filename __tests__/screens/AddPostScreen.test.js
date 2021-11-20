@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-// import { render, fireEvent, act } from '@testing-library/react-native';
+// import renderer from 'react-test-renderer';
+import { render, fireEvent, act } from '@testing-library/react-native';
 // import * as SecureStore from 'expo-secure-store';
 import WS from "jest-websocket-mock";
 
@@ -23,10 +23,7 @@ describe('<AddPostScreen/>', () => {
     });
 
     it('has i child', async () => {
-        const tree = renderer.create(
-            <ContextProvider>
-                <AddPostScreen />
-            </ContextProvider>).toJSON();
+        const tree = render(<AddPostScreen />).toJSON();
         // console.log(tree.children[0].children[0].children[1]);
         expect(tree.children.length).toBe(2);
 
@@ -86,10 +83,7 @@ describe('<AddPostScreen/>', () => {
     // });
 
     it('renders correctly', async () => {
-        const tree = renderer.create(
-            <ContextProvider>
-                <AddPostScreen />
-            </ContextProvider>
+        const tree = render(<AddPostScreen />
         ).toJSON();
 
         expect(tree).toMatchSnapshot();
