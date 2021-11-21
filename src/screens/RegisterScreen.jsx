@@ -60,7 +60,7 @@ const RegisterScreen = ({ navigation }) => {
                 <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5 }}
                     label='Password:' placeholder='password' secureTextEntry={true} onChangeText={setPassword} />
                 <FormInput containerStyles={{ paddingHorizontal: 15, marginVertical: 5, marginBottom: 20 }}
-                    label='Confirm Password:' placeholder='password' secureTextEntry={true} onChangeText={setConfirmPassword} />
+                    label='Confirm Password:' placeholder='confirm password' secureTextEntry={true} onChangeText={setConfirmPassword} />
 
                 <ButtonPrim buttonStyles={styles.loginButton}
                     onPress={register}>Submit</ButtonPrim>
