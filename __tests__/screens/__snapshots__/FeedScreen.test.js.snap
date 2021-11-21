@@ -48,6 +48,7 @@ exports[`<FeedScreen /> renders correctly 1`] = `
           "flexDirection": "row-reverse",
         }
       }
+      testID="settings-button"
     >
       <RNSVGSvgView
         align="xMidYMid"
@@ -104,7 +105,11 @@ exports[`<FeedScreen /> renders correctly 1`] = `
     </View>
   </View>
   <RCTScrollView
-    data={Array []}
+    data={
+      Array [
+        "{\\"username\\":\\"testUser\\",\\"message\\":\\"testMessage\\"}",
+      ]
+    }
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -128,7 +133,43 @@ exports[`<FeedScreen /> renders correctly 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "hsl(230, 100%, 80%)",
+              "borderRadius": 10,
+              "marginVertical": 5,
+              "padding": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            testUser:
+          </Text>
+          <Text
+            style={
+              Object {
+                "paddingLeft": 20,
+              }
+            }
+          >
+            testMessage
+          </Text>
+        </View>
+      </View>
+    </View>
   </RCTScrollView>
   <View
     accessible={true}
@@ -150,6 +191,7 @@ exports[`<FeedScreen /> renders correctly 1`] = `
         "right": 0,
       }
     }
+    testID="add-post-button"
   >
     <RNSVGSvgView
       align="xMidYMid"

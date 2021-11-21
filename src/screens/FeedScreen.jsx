@@ -21,7 +21,7 @@ const FeedScreen = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>Feed</Text>
-                <Pressable style={styles.settingsButton} onPress={() => { navigation.navigate('Settings'); }}>
+                <Pressable testID='settings-button' style={styles.settingsButton} onPress={() => { navigation.navigate('Settings'); }}>
                     <FontAwesomeIcon icon={faCog} size={28} />
                 </Pressable>
             </View>
@@ -30,7 +30,7 @@ const FeedScreen = ({ navigation }) => {
                 data={messages}
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index} />
-            <Pressable style={styles.postButton} onPress={() => { navigation.navigate('Send Post'); }}>
+            <Pressable testID='add-post-button' style={styles.postButton} onPress={() => { navigation.navigate('Send Post'); }}>
                 <FontAwesomeIcon icon={faPlusCircle} color='hsla(0, 0%, 0%,.5)' size={50} />
             </Pressable>
         </View>
