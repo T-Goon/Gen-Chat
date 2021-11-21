@@ -24,7 +24,7 @@ const reducer = (state, action) => {
 }
 
 const initialValue = {
-    sendMessage: () => { throw new Error('Overwrite this function'); },
+    sendMessage: null,
     messages: [],
     save,
     remove,
@@ -43,7 +43,7 @@ const ContextProvider = ({ children }) => {
         // console.log('Connecting to server');
         const ws = new WebSocket('ws://localhost:3000/');
         ws.onopen = () => {
-            if(mounted)
+            if (mounted)
                 setWS(ws);
             // console.log('Opened ws connection');
         };
@@ -51,11 +51,12 @@ const ContextProvider = ({ children }) => {
             // console.log('Closed ws connection');
             connectWS();
         };
-        ws.onerror = (e) => {
-            // console.log("error ", e);
-        };
+        // ws.onerror = (e) => {
+        // console.log("error ", e);
+        // };
         ws.onmessage = (e) => {
-            dispatch({ type: 'add', payload: e.data });
+            if (mounted)
+                dispatch({ type: 'add', payload: e.data });
         };
 
         return () => {
@@ -72,7 +73,10 @@ const ContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <Context.Provider value={{ sendMessage, messages, save, remove, getValueFor }}>
+        <Context.Provider value={{
+            sendMessage: ws ? sendMessage : initialValue.sendMessage,
+            messages, save, remove, getValueFor
+        }}>
             {children}
         </Context.Provider>
     );
