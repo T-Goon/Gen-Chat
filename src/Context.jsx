@@ -38,10 +38,13 @@ const ContextProvider = ({ children }) => {
     const [messages, dispatch] = useReducer(reducer, []);
 
     const connectWS = () => {
+        let mounted = true;
+
         // console.log('Connecting to server');
         const ws = new WebSocket('ws://localhost:3000/');
         ws.onopen = () => {
-            setWS(ws);
+            if(mounted)
+                setWS(ws);
             // console.log('Opened ws connection');
         };
         ws.onclose = (e) => {
@@ -54,6 +57,10 @@ const ContextProvider = ({ children }) => {
         ws.onmessage = (e) => {
             dispatch({ type: 'add', payload: e.data });
         };
+
+        return () => {
+            mounted = false;
+        };
     }
 
     const sendMessage = (msg) => {
@@ -61,7 +68,7 @@ const ContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        connectWS();
+        return connectWS();
     }, []);
 
     return (

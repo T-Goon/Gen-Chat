@@ -52,6 +52,7 @@
       "**/*.{js,jsx}",
       "!**/coverage/**",
       "!**/node_modules/**",
+      "!**/server/**",
       "!**/babel.config.js",
       "!**/jest.setup.js"
     ]
