@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { View } from 'react-native';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 import * as SecureStore from 'expo-secure-store';
 
