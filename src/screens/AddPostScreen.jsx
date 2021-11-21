@@ -7,15 +7,15 @@ import { Context } from "../Context";
 import FormInput from "../components/FormInput";
 import ButtonPrim from "../components/ButtonPrim";
 
-const AddPostScreen = () => {
+const AddPostScreen = ({ navigation }) => {
     const [message, setMessage] = useState('');
     const { sendMessage, getValueFor } = useContext(Context);
 
     const post = async () => {
         console.log(`posting: ${message}`)
-        if(message !== '') {
+        if (message !== '') {
             const token = await getValueFor('token');
-            if(!token) {
+            if (!token) {
                 console.log('not Logged in');
                 alert('Not logged in.');
                 navigation.reset({ index: 1, routes: [{ name: 'Login' }] });
@@ -27,9 +27,9 @@ const AddPostScreen = () => {
                     message
                 }));
             }
-            
+
         }
-        
+
     };
 
     return (
